@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Inconsolata&family=Quicksand&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
