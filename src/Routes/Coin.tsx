@@ -163,7 +163,7 @@ function Coin() {
     const [info, setInfo] = useState<InfoData>();
     const [priceInfo, setPriceInfo] = useState<PriceData>();
     useEffect(() => {
-        (async () => {
+        (async () => { 
         const infoData = await (
             await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
         ).json();
@@ -227,7 +227,7 @@ function Coin() {
                         <Price />
                     </Route>
                     <Route path={`/${coinId}/chart`}>
-                        <Chart />
+                        <Chart coinId={coinId} />
                     </Route>
                 </Switch>
             </>
