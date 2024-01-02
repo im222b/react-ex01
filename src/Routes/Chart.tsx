@@ -19,8 +19,12 @@ interface IHistorical {
 
 function Chart({ coinId } : ChartProps){
     const { isLoading, data } = useQuery<IHistorical[]>(["ohlcv", coinId], () =>
-    fetchCoinHestory(coinId)
-);    
+    fetchCoinHestory(coinId),
+    {
+        refetchInterval: 10000,
+    }
+
+    );    
     return (
         <div>
         {isLoading ? (
@@ -59,10 +63,21 @@ function Chart({ coinId } : ChartProps){
                 },
 
                 xaxis: {
-                
+                axisBorder: { show:false },
                 axisTicks: { show: false },
                 labels: { show: false },
+                type: "datetime" ,
+                categories: data?.map((price) => price.time_close),
                 },
+                
+                fill: { type: "gradient", gradient : {gradientToColors: ["#778beb"] , stops: [0 ,100]}
+            },
+                colors:["#cf6a87"],
+                tooltip: {
+                    y :{
+                        formatter: (value) => `$${value.toFixed(3)}` ,
+                    }
+                }
             }}
             />
         )}
