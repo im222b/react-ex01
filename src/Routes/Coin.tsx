@@ -150,6 +150,8 @@ interface PriceData {
     };
 }
 
+
+
 function Coin() {
     const {coinId} =useParams<RouteParams>();
     const { state }= useLocation<RouteState>(); 
@@ -161,7 +163,7 @@ function Coin() {
         ["tickers",coinId], 
         () => fetchCoinTickers(coinId),
         {
-            refetchInterval: 5000,
+            refetchInterval: 500000,
         }
         );
 
@@ -209,7 +211,7 @@ function Coin() {
                 </OverviewItem>
                 <OverviewItem>
                     <span>Price:</span>
-                    <span>{tickersData?.quotes.USD.price.toFixed(3)}</span>
+                    <span>${tickersData?.quotes?.USD?.price?.toFixed(3)}</span>
                 </OverviewItem>
                 </Overview>
                 <Description>{infoData?.description}</Description>
